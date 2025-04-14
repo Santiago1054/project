@@ -5,56 +5,104 @@ import '../content.css'
 import { Header } from './Header.jsx'
 import { TopNav } from './TopNav.jsx'
 import { Card } from './Card.jsx'
+
+
 export function ContentLoyout({ }) {
-    const [type, setType] = useState('Any')
-    const [img, setImage] = useState('')
-    const [data, setData] = useState([])
-    const [count, setCount] = useState(0)
-    var url = `https://v2.jokeapi.dev/joke/${type}?lang=es&type=single&amount=3`
+    //Declare the variables
+    const [title, setTitle] = useState("");
+    const [titleDescription, setTitleDescription] = useState("");
+    const [error, setError] = useState("");
+    const [text, setText] = useState("");
+    const [data, setData] = useState([]);
+
+    //Handle the form submit
     const handleOnClick = (e) => {
-        setId(e.target.value)
-        setCount(count + 1)
+        e.preventDefault();
+
+        //Check if the fields are empty
+        //If they are empty, set the error message  and return  
+        if (!title || !titleDescription || !text) {
+            setError("Please fill all the fields");
+            return;
+        } else {
+            //If the fields are not empty, set the data and clear the fields
+            //Set the data to the state and clear the fields    
+            setError("");
+            setData([...data, { title, titleDescription, text, }]);
+            setTitle("");
+            setTitleDescription("");
+            setText("");
+        }
     }
-    var req = new Request(url);
-    useEffect(() => {
-        fetch(req)
-            .then(Response => Response.json())
-            .then(data => setData(data.jokes))
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
-    }, [count])
 
 
-    useEffect(() => {
-        data.map(item => setData(...data, item.joke))
-    }, [count])
-
-    console.log(data)
     return (
         <>
             <Header />
-
             <TopNav />
-            <button onClick={handleOnClick}>{count}</button>
             <div className="row">
                 <div className="leftcolumn">
-                    {data.map((item, index) => (
-                        <div key={index}>
-                            <Card
-                                Title={item.joke}
+                    <div class="container">
+                        <h1 className='text-title'>New Post</h1>
+                        <form >
+                            <div class="row">
+                                <div class="col-25">
+                                    <label className='text' htmlFor="fname">Post Title</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="fname" name="firstname" value={title} placeholder="Your post title.." onChange={(e) => setTitle(e.target.value)} />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label className='text' htmlFor="lname">Post Author</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="lname" name="lastname" value={titleDescription} placeholder="Your full name.." onChange={(e) => setTitleDescription(e.target.value)} />
+                                </div>
+                            </div>
 
-                            />
-                        </div>
-                    ))}
+                            <div class="row">
+                                <div class="col-25">
+                                    <label className='text' htmlFor="subject">Post Content</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea id="subject" name="subject" placeholder="Write something.." value={text} onChange={(e) => setText(e.target.value)} />
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="row">
+                                <input type="submit" value="Create" onClick={handleOnClick} />
+                            </div>
+                        </form>
+                        {error && <p className='error'>{error}</p>}
+                    </div>
+                    {
+                        data.length > 0 ? // If there is data, show the cards
+                            (data.map
+                                (
+                                    (item, index) => (
+                                        <Card key={index} Title={item.title} TitleDescription={item.titleDescription} Text={item.text} />
+                                    )
+                                )
+                            )
+                            :  // If there is no data, show a message
+                            (
 
+                                <h1 className='card'>No content available</h1>
 
+                            )
 
+                    }
                 </div>
                 <div className="rightcolumn">
                     <div className="card">
-                        <h2>About Me</h2>
-                        <div className="fakeimg" >Image</div>
-                        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                        <h2 className='text-title'>About Me</h2>
+                        <div class="fakeimg">
+                            <img src="https://media.licdn.com/dms/image/v2/D5635AQFCh0lZbIcRVA/profile-framedphoto-shrink_200_200/B56ZYWSC4LHQAg-/0/1744130551716?e=1745262000&v=beta&t=9iheAYiAZc1WTE82i8awo1V5CaQEHnBtiAJvmx328F4 " alt="Perfil" />
+                        </div>
+                        <h3 className='text-title'>Santiago Ramirez Castellanos</h3>
+                        <p className='text'>Software Developer - Back-End - MERN Stack - | MongoDB | Express.js | React.js | Node.js |</p>
                     </div>
                     <div className="card">
                         <h3>Popular Post</h3>
