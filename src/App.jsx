@@ -1,6 +1,6 @@
 import { useState } from 'react'
 //import './App.css'
-
+import './content.css'
 import { ContentLoyout } from './components/ContentLoyout.jsx'
 function App() {
 
@@ -9,9 +9,9 @@ function App() {
 
   return (
     <>
-
-      < ContentLoyout />
-
+      <div className='bg'>
+        < ContentLoyout />
+      </div>
 
     </>
   )
