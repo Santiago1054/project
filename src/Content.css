@@ -5,7 +5,6 @@
 .bg {
   background-color: #0f0f0f98;
   height: max-content;
-  
 }
 body {
   height: 100vh;
@@ -286,4 +285,12 @@ input[type="submit"]:hover {
 } /* Red */
 .error {
   color: red;
+}
+textarea {
+  width: 100%;           /* se adapta al ancho del contenedor */
+  max-width: 100%;       /* no se pasa del contenedor */
+  height: 150px;         /* altura fija o la que necesites */
+  overflow: auto;        /* muestra scroll si es necesario */
+  resize: vertical;      /* solo permite redimensionar verticalmente */
+  box-sizing: border-box;/* incluye padding en el tamaño */
 }

@@ -33,7 +33,7 @@ export function AboutMe({ showProjects }) {
                     </p>
 
 
-                    <button onClick={handleOnClick}>Projects</button>
+                    <button className = "button" onClick={handleOnClick}>Show Projects</button>
                 </div>
             </div>
         </>

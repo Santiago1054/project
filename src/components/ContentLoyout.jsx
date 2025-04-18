@@ -8,6 +8,9 @@ import { Card } from './Card.jsx'
 import { Constants } from '../constants/Constants.js'
 import { AboutMe } from './AboutMe.jsx'
 import { PrevProjects } from './PrevProjects.jsx'
+import { SkillSection } from './SkillSection.jsx'
+import { Education } from './Education.jsx'
+import { PostSection } from './PostSection.jsx'
 export function ContentLoyout({ }) {
     const inputRef = useRef(null);
     //Declare the variables
@@ -102,110 +105,27 @@ export function ContentLoyout({ }) {
             <TopNav />
             <div className="row">
                 <div className="leftcolumn">
-                    <AboutMe showProjects={recibirbutton} />
-                    {
-                        data.length > 0 ? // If there is data, show the cards
-                            (data.map
-                                (
-                                    (item, id) => (
-                                        <Card key={id} Title={item.title} TitleDescription={item.titleDescription} Text={item.text}
-                                            onEnviarValor={recibirValor} onDislikes={recibirId} liked={item.valorDesdeHijo} id={id} />
-                                    )
-                                )
-                            )
-                            :  // If there is no data, show a message
-                            (
-                                <div className='card-content'>
-                                    <div className="card">
-                                        <section className='item-center'>
-                                            <h1 className='text-title'>No content available</h1>
-                                            <p className='text'>Please create a new post</p>
+                    
 
-                                        </section>
-
-                                    </div>
-                                </div>
-
-
-                            )
-                    }
+                    <PostSection />
                 </div>
+
+
+
+
+
+
                 <div className="rightcolumn">
-                    <div className='card-content'>
-                        <div className="card">
-                            <h1 className='text-title'>New Post</h1>
-                            <form >
-                                <div className="row">
-                                    <div className="col-25">
-                                        <label className='text' htmlFor="fname">Post Title:</label>
-                                    </div>
-                                    <div className="col-75">
-                                        <input type="text" id="fname" name="firstname" value={title} placeholder="Your post title.." onChange={(e) => setTitle(e.target.value)} />
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-25">
-                                        <label className='text' htmlFor="lname">Post Author</label>
-                                    </div>
-                                    <div className="col-75">
-                                        <input type="text" id="lname" name="lastname" value={titleDescription} placeholder="Your full name.." onChange={(e) => setTitleDescription(e.target.value)} />
-                                    </div>
-                                </div>
-
-                                <div className="row">
-                                    <div className="col-25">
-                                        <label className='text' htmlFor="subject">Post Content</label>
-                                    </div>
-                                    <div className="col-75">
-                                        <textarea id="subject" name="subject" placeholder="Write something.." value={text} onChange={(e) => setText(e.target.value)} />
-                                    </div>
-                                </div>
-                                <br></br>
-                                <div className="row">
-                                    <div className="form-button">
-                                        <input type="submit" value="Create" onClick={handleOnClick} />
-                                    </div>
-                                </div>
-                            </form>
-                            {error && <p className='error'>{error}</p>}
-                        </div>
-                    </div>
-
-                    <div className='card-content'>
-                        <div className="card">
-                            <h3 className='text-title'>Popular Post</h3>
-
-                            {
-                                data.length > 0 ? // If there is data, show the cards
-                                    (data.filter(item => item.valorDesdeHijo > 3).map
-                                        (
-                                            (item, id) => (
-                                                <Card key={id} Title={item.title} TitleDescription={item.titleDescription} id={id} />
-                                            )
-                                        )
-                                    )
-                                    :  // If there is no data, show a message
-                                    (
-
-                                        <h1 className='text-title'>No popular content available</h1>
-
-                                    )
+                <AboutMe showProjects={recibirbutton} />
+                    <SkillSection />
+                    <Education />
 
 
-                            }
 
-                        </div>
-                    </div>
-                    <div className='card-content'>
-                        <div className="card">
-
-                            <p></p>
-                        </div>
-                    </div>
                 </div>
             </div >
 
-            <div className="footer" ref={inputRef} tabIndex={-1} >
+            <div className="footer" ref={inputRef} tabIndex={1} >
 
                 <PrevProjects />
                 <h2></h2>

@@ -1,6 +1,6 @@
 import react, { useState } from 'react'
 import '../Content.css'
-export function Card({ Title, TitleDescription, Text, onEnviarValor, onDislikes, id }) {
+export function Card({ Text, onEnviarValor, onDislikes, id }) {
     //declare the state variables
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
@@ -24,8 +24,8 @@ export function Card({ Title, TitleDescription, Text, onEnviarValor, onDislikes,
         <>
             <div className="card-content">
                 <div className='card'>
-                    <h1 className='text-title'>{Title}</h1>
-                    <h5 className='text'>{'By ' + TitleDescription}</h5>
+
+                    <h2 className='text'>Comments</h2>
                     <p className='text' >{Text}</p>
                     {onEnviarValor &&
 
