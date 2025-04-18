@@ -5,36 +5,37 @@ export function SkillSection({ }) {
         <>
             <div className='card-content' >
                 <div className="card">
-                    <h1 className='text-title'>My Skills</h1>
+                    <section className='text-section'>
+                        <h1 className='text-title'>My Skills</h1>
 
-                    <ul className='text'>
-                        <li>
-                            <h1 className='text'>
-                                Front-End & Back-End development
-                                databases (SQL)
-                            </h1>
+                        <ul className='text'>
+                            <li>
+                                <p className='text'>
+                                    Front-End & Back-End development
+                                    databases (SQL)
+                                </p>
 
-                        </li>
-                        <li>
-                            <h1 className='text'>Flexibility and adaptability
-                            </h1>
-                        </li>
-                        <li>
-                            <h1 className='text'>Fast learner
-                            </h1>
-                        </li>
-                        <li>
-                            <h1 className='text'>Creativity and innovation</h1>
-                        </li>
-                        <li>
-                            <h1 className='text'>Front-End & Back-End development
-                            </h1>
-                        </li>
-                        <li>
-                            <h1 className='text'>English proficiency</h1>
-                        </li>
-                    </ul>
-                    <p></p>
+                            </li>
+                            <li>
+                                <p className='text'>Flexibility and adaptability
+                                </p>
+                            </li>
+                            <li>
+                                <p className='text'>Fast learner
+                                </p>
+                            </li>
+                            <li>
+                                <p className='text'>Creativity and innovation</p>
+                            </li>
+                            <li>
+                                <p className='text'>Front-End & Back-End development
+                                </p>
+                            </li>
+                            <li>
+                                <p className='text'>English proficiency</p>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </>

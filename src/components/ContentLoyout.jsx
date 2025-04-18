@@ -105,9 +105,9 @@ export function ContentLoyout({ }) {
             <TopNav />
             <div className="row">
                 <div className="leftcolumn">
+                    <PrevProjects />
 
 
-                    <PostSection />
                 </div>
 
 
@@ -127,7 +127,7 @@ export function ContentLoyout({ }) {
 
             <div className="footer" ref={inputRef} tabIndex={1} >
 
-                <PrevProjects />
+                <PostSection />
                 <h2></h2>
             </div >
         </>
