@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react'
-import '../content.css'
+import '../Content.css'
 
 
 export function PrevProjects({ }) {
