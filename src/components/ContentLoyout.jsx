@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react'
 
-import '../content.css'
+import '../Content.css'
 import { Header } from './Header.jsx'
 import { TopNav } from './TopNav.jsx'
 import { Card } from './Card.jsx'
@@ -105,7 +105,7 @@ export function ContentLoyout({ }) {
             <TopNav />
             <div className="row">
                 <div className="leftcolumn">
-                    
+
 
                     <PostSection />
                 </div>
@@ -116,7 +116,7 @@ export function ContentLoyout({ }) {
 
 
                 <div className="rightcolumn">
-                <AboutMe showProjects={recibirbutton} />
+                    <AboutMe showProjects={recibirbutton} />
                     <SkillSection />
                     <Education />
 

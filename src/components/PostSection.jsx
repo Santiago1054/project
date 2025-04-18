@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react'
 
-import '../content.css'
+import '../Content.css'
 import { Header } from './Header.jsx'
 import { TopNav } from './TopNav.jsx'
 import { Card } from './Card.jsx'
