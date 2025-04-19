@@ -311,3 +311,19 @@ textarea {
   resize: vertical; /* solo permite redimensionar verticalmente */
   box-sizing: border-box; /* incluye padding en el tamaño */
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

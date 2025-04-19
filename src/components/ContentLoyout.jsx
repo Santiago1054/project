@@ -11,6 +11,7 @@ import { PrevProjects } from './PrevProjects.jsx'
 import { SkillSection } from './SkillSection.jsx'
 import { Education } from './Education.jsx'
 import { PostSection } from './PostSection.jsx'
+import { FirtstApi } from './FirtstApi.jsx'
 export function ContentLoyout({ }) {
     const inputRef = useRef(null);
     //Declare the variables
@@ -37,7 +38,7 @@ export function ContentLoyout({ }) {
     //Use the useEffect to save the data to the local storage
     useEffect(() => {
         localStorage.setItem("data", JSON.stringify(data));
-    }, [data]);*/
+    }, [data]);
     const recibirValor = (valor) => {
         setValorDesdeHijo(valor);
     };
@@ -45,50 +46,52 @@ export function ContentLoyout({ }) {
     const recibirId = (valor) => {
         setDislikes(valor);
     };
+    */
     const recibirbutton = (valor) => {
         setBtt(valor);
         console.log("valor", valor);
     };
 
-
-    //Handle the form submit
-    const handleOnClick = (e) => {
-        e.preventDefault();
-
-        //Check if the fields are empty
-        //If they are empty, set the error message  and return  
-        if (!title || !titleDescription || !text) {
-            setError("Please fill all the fields");
-            return;
-        } else {
-            //If the fields are not empty, set the data and clear the fields
-            //Set the data to the state and clear the fields 
-            setError("");
-            setId(id + 1)
-            setData([...data, { title, titleDescription, text, valorDesdeHijo, dislikes, id }]);
-            setTitle("");
-            setTitleDescription("");
-            setText("");
-            //console.log("id out", id);
-            // console.log("id dislikes", dislikes);
-        }
-    }
-
-    useEffect(() => {
-        setId(dislikes)
-        setData(prevItems =>
-            prevItems.map((item, id) =>
-                id === dislikes ? { ...item, valorDesdeHijo } : item
-            )
-        );
-        //console.log("jjjj", id);
-    }, [valorDesdeHijo]);
-
-    useEffect(() => {
-        setId(id)
-        //console.log("now", id);
-        // console.log("dislikes now", dislikes);
-    }, [id]);
+    /*
+       //Handle the form submit
+       const handleOnClick = (e) => {
+           e.preventDefault();
+   
+           //Check if the fields are empty
+           //If they are empty, set the error message  and return  
+           if (!title || !titleDescription || !text) {
+               setError("Please fill all the fields");
+               return;
+           } else {
+               //If the fields are not empty, set the data and clear the fields
+               //Set the data to the state and clear the fields 
+               setError("");
+               setId(id + 1)
+               setData([...data, { title, titleDescription, text, valorDesdeHijo, dislikes, id }]);
+               setTitle("");
+               setTitleDescription("");
+               setText("");
+               //console.log("id out", id);
+               // console.log("id dislikes", dislikes);
+           }
+       }
+   
+       useEffect(() => {
+           setId(dislikes)
+           setData(prevItems =>
+               prevItems.map((item, id) =>
+                   id === dislikes ? { ...item, valorDesdeHijo } : item
+               )
+           );
+           //console.log("jjjj", id);
+       }, [valorDesdeHijo]);
+   
+       useEffect(() => {
+           setId(id)
+           //console.log("now", id);
+           // console.log("dislikes now", dislikes);
+       }, [id]);
+       */
     useEffect(() => {
         if (btt == true) {
             inputRef.current.focus();
@@ -126,7 +129,7 @@ export function ContentLoyout({ }) {
             </div >
 
             <div className="footer" ref={inputRef} tabIndex={1} >
-
+                <FirtstApi />
                 <PostSection />
                 <h2></h2>
             </div >
