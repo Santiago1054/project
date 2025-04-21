@@ -193,14 +193,6 @@ body {
   clear: both;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #0f0f0f;
-  margin-top: 20px;
-}
-
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn,
@@ -311,19 +303,54 @@ textarea {
   resize: vertical; /* solo permite redimensionar verticalmente */
   box-sizing: border-box; /* incluye padding en el tamaño */
 }
-
+/* Footer */
+.footer {
+  text-align: center;
+  place-items: center;
+  background: #0f0f0f;
+}
 .page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 1000px;
 }
 main {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .form {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+.movies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Cambia el tamaño mínimo de las columnas según tus necesidades */
+  gap: 32px;
+}
+.movie {
+  text-align: center;
+  width: 100%;
+}
+.movie h3,
+.movie p {
+  margin: 0;
+
+  color: white;
+  font-size: medium;
+}
+.movies img {
+  border-radius: 8px;
+
+  margin-top: 32px;
 }
