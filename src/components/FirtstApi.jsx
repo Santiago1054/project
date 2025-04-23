@@ -34,12 +34,13 @@ function useSearch() {
 }
 
 export function FirtstApi() {
-    const { movies: mappedMovies } = useMovies()
+
     const { search, setSearch, inputError } = useSearch()
+    const { movies, getMovies, loading } = useMovies({ search })
     //const inputRef = useRef()
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log({ search })
+        getMovies()
         /* const fields = Object.fromEntries(new window.FormData(event.target)) 
         // Esta forma de obtener los datos es mas limpia y no necesita el useRef
         //Usarlo cuando se tenga un formulario con muchos inputs
@@ -58,14 +59,17 @@ export function FirtstApi() {
                 <header>
                     <h1 className='text-title'>Buscador de peliculas</h1>
                     <form className='form' onSubmit={handleSubmit}>
-                        <input  onChange={handleChange} name='search' placeholder='Avengers, Star Wars, The Matrix ...' />
+                        <input onChange={handleChange} name='search' placeholder='Avengers, Star Wars, The Matrix ...' />
                         <button type='submit'>Search</button>
                     </form>
                     {inputError && <p className='error'>{inputError}</p>}
                 </header>
 
                 <main >
-                    <Movies movies={mappedMovies} />
+                    {
+                        loading ? <p className='text'>Cargando...</p> : <Movies movies={movies} />
+                    }
+
                 </main>
             </div>
         </>

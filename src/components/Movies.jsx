@@ -17,12 +17,12 @@ function ListOfMovies({ movies }) {
 
 export function NoResults() {
     return (
-        <p>No se encontraron peliculas para esta busqeda</p>
+        <p className='error'>No se encontraron peliculas para esta busqueda</p>
     )
 }
 export function Movies({ movies }) {
 
-    const hasMovies = movies.length > 0
+    const hasMovies = movies?.length > 0
     return (
         hasMovies
             ? <ListOfMovies movies={movies} />

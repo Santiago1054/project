@@ -12,7 +12,7 @@ export function AboutMe({ showProjects }) {
                 <div className="card">
                     <h2 className='text-title'>About Me</h2>
                     <div className="fakeimg">
-                        <img src="https://media.licdn.com/dms/image/v2/D5635AQFCh0lZbIcRVA/profile-framedphoto-shrink_200_200/B56ZYWSC4LHQAg-/0/1744130551716?e=1745262000&v=beta&t=9iheAYiAZc1WTE82i8awo1V5CaQEHnBtiAJvmx328F4 " alt="Perfil" />
+                        <img src="https://media.licdn.com/dms/image/v2/D5635AQFCh0lZbIcRVA/profile-framedphoto-shrink_200_200/B56ZYWSC4LHQAg-/0/1744130551716?e=1746032400&v=beta&t=3L82utG8FuR_Up_xEG9eQY3qKh882ys4asaw419sE4E " alt="Perfil" />
                     </div>
                     <section className='text-section'>
                         <h1 className='text-title'>Santiago Ramirez Castellanos</h1>
