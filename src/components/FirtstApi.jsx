@@ -1,5 +1,5 @@
 
-import { useRef, useState } from 'react'
+import { use, useRef, useState } from 'react'
 import { Movies } from './Movies'
 import { useMovies } from '../hooks/useMovies'
 import { useEffect } from 'react'
@@ -34,13 +34,13 @@ function useSearch() {
 }
 
 export function FirtstApi() {
-
+    const [sort, setSort] = useState(false)
     const { search, setSearch, inputError } = useSearch()
-    const { movies, getMovies, loading } = useMovies({ search })
+    const { movies, getMovies, loading } = useMovies({ search, sort })
     //const inputRef = useRef()
     const handleSubmit = (event) => {
         event.preventDefault()
-        getMovies()
+        getMovies({ search })
         /* const fields = Object.fromEntries(new window.FormData(event.target)) 
         // Esta forma de obtener los datos es mas limpia y no necesita el useRef
         //Usarlo cuando se tenga un formulario con muchos inputs
@@ -49,10 +49,15 @@ export function FirtstApi() {
         console.log(search)*/
         // TO DO : Validar el input 
     }
+    const handleSort = () => {
+        setSort(!sort)
+    }
     const handleChange = (event) => {
         setSearch(event.target.value)
     }
-
+    useEffect(() => {
+        console.log("getMovies");
+    }, [getMovies])
     return (
         <>
             <div className='page'>
@@ -60,7 +65,9 @@ export function FirtstApi() {
                     <h1 className='text-title'>Buscador de peliculas</h1>
                     <form className='form' onSubmit={handleSubmit}>
                         <input onChange={handleChange} name='search' placeholder='Avengers, Star Wars, The Matrix ...' />
+
                         <button type='submit'>Search</button>
+                        <input type='checkbox' onChange={handleSort} checked={sort} />
                     </form>
                     {inputError && <p className='error'>{inputError}</p>}
                 </header>
