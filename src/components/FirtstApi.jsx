@@ -62,13 +62,45 @@ export function FirtstApi() {
         <>
             <div className='page'>
                 <header>
-                    <h1 className='text-title'>Buscador de peliculas</h1>
-                    <form className='form' onSubmit={handleSubmit}>
-                        <input onChange={handleChange} name='search' placeholder='Avengers, Star Wars, The Matrix ...' />
 
-                        <button type='submit'>Search</button>
-                        <input type='checkbox' onChange={handleSort} checked={sort} />
+                    <form onSubmit={handleSubmit}>
+
+                        <div className="brutalist-container">
+                            <input
+                                onChange={handleChange}
+                                className="brutalist-input smooth-type"
+                                type="text"
+                                name='search'
+                                placeholder='Avengers, Star Wars, The Matrix ...'
+
+                            />
+                            <label class="brutalist-label">MOVIE FINDER</label>
+
+                        </div>
+                        <section className='form' >
+                            <button type='submit' className="btn-17" data-text="Awesome">
+                                <span class="text-container">
+                                    <span class="text">Search</span>
+                                </span>
+                            </button>
+                            <label class="checkbox-wrapper">
+                                <input type='checkbox' onChange={handleSort} checked={sort} />
+                                <div class="checkmark">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M20 6L9 17L4 12"
+                                            stroke-width="3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="label">Sort</span>
+                            </label>
+                        </section>
+
                     </form>
+
                     {inputError && <p className='error'>{inputError}</p>}
                 </header>
 

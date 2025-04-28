@@ -4,9 +4,18 @@ function ListOfMovies({ movies }) {
             {
                 movies.map(movie => (
                     <li className="movie" key={movie.id}>
-                        <h3>{movie.title}</h3>
-                        <p>{movie.year}</p>
-                        <img src={movie.poster} alt={movie.Title} />
+
+                        <div class="cards">
+                            <img src={movie.poster} alt={movie.Title} />
+                            <div class="card__content">
+                                <h1 class="text-title">{movie.title}</h1>
+                                <p class="card__description">
+                                    {movie.year}
+                                </p>
+                            </div>
+                        </div>
+
+
 
                     </li>
                 ))
