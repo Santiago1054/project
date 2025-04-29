@@ -7,32 +7,17 @@
   height: max-content;
 }
 body {
-  height: 100vh;
-  background: linear-gradient(
-    270deg,
-    rgb(255, 255, 255),
-    rgb(0, 0, 0),
-    rgb(105, 105, 83),
-    rgb(46, 42, 26),
-    rgb(37, 36, 36),
-    rgb(41, 39, 39),
-    rgb(52, 49, 49)
+  background-color: #000000;
+
+  background: repeating-linear-gradient(
+    -45deg,
+    #6e6e6e,
+    #6e6e6e 20px,
+    #000000 20px,
+    #000000 100px
   );
-  background-size: 1400% 1400%;
-  animation: rgbFlow 20s ease infinite;
 }
 
-@keyframes rgbFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 /* Header/Blog Title */
 .header {
   padding: 30px;
@@ -116,14 +101,19 @@ body {
 
 .card {
   place-items: center;
-  background-color: #0f0f0f98;
-  background-size: cover;
-  background-position: center;
+  background-color: #000000;
+  opacity: 0.9;
+  background-image: radial-gradient(#6e6e6e 2px, transparent 2px),
+    radial-gradient(#6e6e6e 2px, #000000 2px);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+
   padding: 20px;
   margin: 20px;
   width: auto;
   border-radius: 16px;
 }
+
 .card-content {
   place-items: center;
   display: grid;
@@ -308,8 +298,25 @@ textarea {
 .footer {
   text-align: center;
   place-items: center;
-  background: #0f0f0f;
+  width: 100%;
+  height: 100%;
+
+  /* Add your background pattern here */
+  --s: 90px; /* change size */
+  --c-half-left: hsl(0, 0%, 7%); /* has( color-value, shadow, brightness ) */
+  --c-half-right: hsl(0, 0%, 13%);
+  --c-bottom: hsl(270, 50%, 50%);
+
+  background: conic-gradient(
+    var(--c-half-left) 0deg,
+    var(--c-half-left) 120deg,
+    var(--c-bottom) 120deg,
+    var(--c-bottom) 240deg,
+    var(--c-half-right) 240deg
+  );
+  background-size: var(--s);
 }
+
 .page {
   display: flex;
   flex-direction: column;
@@ -884,4 +891,27 @@ main {
 
 .cards:hover svg {
   scale: 0;
+}
+/* From Uiverse.io by MikeAndrewDesigner */
+.container {
+  padding: 30px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  --s: 60px;
+  --c1: #180a22;
+  --c2: #5b42f3;
+  --_g: radial-gradient(
+    25% 25% at 25% 25%,
+    var(--c1) 99%,
+    rgba(0, 0, 0, 0) 101%
+  );
+  background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
+      calc(2 * var(--s)),
+    var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
+    radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
+      var(--s),
+    repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
+      calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
 }

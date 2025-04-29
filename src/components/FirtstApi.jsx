@@ -83,6 +83,7 @@ export function FirtstApi() {
                                     <span class="text">Search</span>
                                 </span>
                             </button>
+
                             <label class="checkbox-wrapper">
                                 <input type='checkbox' onChange={handleSort} checked={sort} />
                                 <div class="checkmark">

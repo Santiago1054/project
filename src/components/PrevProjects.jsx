@@ -12,6 +12,9 @@ export function PrevProjects({ }) {
                     <h1 className='text-title'>+EASIFY</h1>
 
 
+
+
+
                     <div className='projects-section'>
                         <iframe width="400" height="200" src="https://www.youtube.com/embed/9Op2t5Fws1E?si=O02_HngaXtzQRfSr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <img width="400" height="200" src="https://media.licdn.com/dms/image/v2/D4E22AQFgK7Rd5cSSAQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1731081988391?e=1747872000&v=beta&t=PN2Xx23ogxQzjVSAhK85m8BIQol56fTeFScwxDuPkzQ" alt="" />
